@@ -2,7 +2,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const port = process.env.PORT;
+const port = 3000;
 
 // You may use this as a boolean value for different situations
 const env = {
@@ -11,5 +11,9 @@ const env = {
     staging: process.env.NODE_ENV === 'staging',
     production: process.env.NODE_ENV === 'production',
 };
+const mongo = {
+    url: 'mongodb://localhost:27017/graphql-backend',
+};
 
-export { port, env };
+export { port, env, mongo };
+

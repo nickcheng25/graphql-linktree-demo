@@ -1,0 +1,9 @@
+type RegularLink implements Link {
+    id: ID!
+    queryParameters: [String!]
+
+    # implements Link
+    title: String!
+    link: String!
+    
+}

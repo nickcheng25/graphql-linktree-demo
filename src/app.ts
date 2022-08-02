@@ -1,12 +1,12 @@
-import { createServer } from './server'
+import express from 'express';
+import graphqlServer from './graphql';
 
-const app = createServer().then(server => {
-    server.listen(3000, () => {
-        console.info(`Listening on http://localhost:3000`)
-    })
-})
-    .catch(err => {
-        console.error(`Error: ${err}`)
-    })
+const app = express();
+
+const graphQL = graphqlServer.start().then(
+    res => {
+        graphqlServer.applyMiddleware({ app })
+    }
+);
 
 export default app;

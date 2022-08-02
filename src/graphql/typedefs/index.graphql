@@ -1,0 +1,23 @@
+
+# Custom Scalars
+scalar Date
+
+type Query {
+  # Regular Links
+  regularLinks: [Link]!
+  regularLink(id: ID!): Link
+
+#   # Show Links
+#   showLinks: [ShowLinks]!
+#   showLinks(id: ID!): ShowLinks
+
+#   # Music Player Links
+#   musicLinks: [MusicLinks]!
+#   musicLinks(id: ID!): MusicLinks
+}
+
+type Mutation {
+  # Link
+  createRegularLink(link: String!): Link!
+  updateRegularLink(id: ID!, link: String!): Link!
+}

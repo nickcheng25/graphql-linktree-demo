@@ -1,0 +1,4 @@
+interface Link {
+    title: String!
+    link: String!
+}
