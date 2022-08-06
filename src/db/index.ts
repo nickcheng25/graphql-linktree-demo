@@ -4,7 +4,12 @@ import { mongo } from '../config/environment';
 
 const connect = () => {
     mongoose
-        .connect(mongo.url)
+        .connect(mongo.url, {
+            authSource: "admin",
+            user: "admin",
+            pass: "admin",
+            dbName: "graphql-backend"
+        })
         .then(() => {
             return console.info('Successfully connected to Database');
         })

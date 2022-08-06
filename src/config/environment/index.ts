@@ -12,7 +12,7 @@ const env = {
     production: process.env.NODE_ENV === 'production',
 };
 const mongo = {
-    url: 'mongodb://localhost:27017/graphql-backend',
+    url: 'mongodb://localhost:27017',
 };
 
 export { port, env, mongo };

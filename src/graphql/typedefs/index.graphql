@@ -4,8 +4,8 @@ scalar Date
 
 type Query {
   # Regular Links
-  regularLinks: [Link]!
-  regularLink(id: ID!): Link
+  regularLinks: [RegularLink]!
+  regularLink(id: ID!): RegularLink!
 
 #   # Show Links
 #   showLinks: [ShowLinks]!
@@ -18,6 +18,6 @@ type Query {
 
 type Mutation {
   # Link
-  createRegularLink(link: String!): Link!
-  updateRegularLink(id: ID!, link: String!): Link!
+  createRegularLink(link: String!): RegularLink!
+  updateRegularLink(id: ID!, link: String!): RegularLink!
 }
