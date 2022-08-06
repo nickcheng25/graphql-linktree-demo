@@ -1,6 +1,5 @@
 import RegularLink from '../../../db/models/regular-link';
 import { ObjectId } from 'mongodb'
-import regularLink from '../../../db/models/regular-link';
 
 const regularLinkQueries = {
     regularLinks: async (_parent: any, _args: any) => {
