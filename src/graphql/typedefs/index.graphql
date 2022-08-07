@@ -18,6 +18,6 @@ type Query {
 
 type Mutation {
   # Link
-  createRegularLink(link: String!): RegularLink!
+  createRegularLink(input: RegularLinkInput!): RegularLink!
   updateRegularLink(id: ID!, link: String!): RegularLink!
 }

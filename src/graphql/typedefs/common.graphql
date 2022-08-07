@@ -1,0 +1,10 @@
+interface Link {
+    title: String! @constraint(maxLength: 144)
+    link: String!
+    userId: String!
+    dateCreated: DateTime!
+}
+
+input LinkSearch {
+    userId: String!
+}

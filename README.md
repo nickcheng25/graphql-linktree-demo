@@ -43,3 +43,6 @@ You are required to create a JSON API that our front end clients will interact w
 ---
 # Submission
 Set up your own remote git repository and make commits as you would in your day to day work. Submit a link to your repo when you're finished.
+
+@todo
+- [ ] Consider how we generate links

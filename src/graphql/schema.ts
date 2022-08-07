@@ -1,8 +1,10 @@
 import { join } from 'path';
 import { readdirSync, readFileSync } from 'fs';
 import { makeExecutableSchema } from '@graphql-tools/schema';
-import resolvers from './resolvers';
+import { constraintDirective, constraintDirectiveTypeDefs } from 'graphql-constraint-directive';
+import { DateTimeResolver, DateTimeTypeDefinition } from "graphql-scalars"
 
+import resolvers from './resolvers/index';
 const gqlFiles = readdirSync(join(__dirname, './typedefs'));
 
 let typeDefs = '';
@@ -14,8 +16,10 @@ gqlFiles.forEach((file) => {
 });
 
 const schema = makeExecutableSchema({
-    typeDefs,
-    resolvers,
+    typeDefs: [typeDefs, constraintDirectiveTypeDefs, DateTimeTypeDefinition],
+    resolvers: [resolvers]
 });
 
-export default schema;
+const constraintedSchema = constraintDirective()(schema);
+
+export default constraintedSchema;

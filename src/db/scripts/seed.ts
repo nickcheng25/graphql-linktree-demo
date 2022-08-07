@@ -10,8 +10,8 @@ const seed = async () => {
     console.log('Database clean');
 
     const regularLinks = [
-        new RegularLink({ title: 'Link 1', link: 'https://1' }),
-        new RegularLink({ title: 'Link 2', link: 'https://2' }),
+        new RegularLink({ title: 'Link 1', link: 'https://1', userId: 'seededUser', dateCreated: new Date().toUTCString() }),
+        new RegularLink({ title: 'Link 2', link: 'https://2', userId: 'seededUser', dateCreated: new Date().toUTCString() }),
     ];
 
     const saveThisData = [

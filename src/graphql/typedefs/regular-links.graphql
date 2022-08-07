@@ -1,7 +1,0 @@
-type RegularLink {
-    id: ID!
-    # implements Link
-    title: String!
-    link: String!
-    
-}
