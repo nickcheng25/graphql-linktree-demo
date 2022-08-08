@@ -2,7 +2,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const port = 3000;
+const port = 4000;
 
 const mongo = {
     url: 'mongodb://localhost:27017',

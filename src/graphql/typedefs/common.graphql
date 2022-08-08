@@ -5,6 +5,13 @@ interface Link {
     dateCreated: DateTime!
 }
 
-input LinkSearch {
+interface Music {
+    title: String! @constraint(maxLength: 144)
+    link: String!
     userId: String!
+    dateCreated: DateTime!
+    platformLinks: [String]
+    audioEmbed: [String]
 }
+
+union LinkSearch = RegularLink | MusicLink

@@ -9,7 +9,7 @@ const start = async () => {
         console.log('Connected to database');
 
         await app.listen(port);
-        console.log(`🚀  GraphQL server running at http://localhost:3000/graphql`);
+        console.log(`🚀  GraphQL server running at http://localhost:4000/graphql`);
     } catch {
         console.log('Not able to run GraphQL server');
     }

@@ -5,6 +5,7 @@ import { QueryRegularLinkArgs, QueryResolvers } from 'src/graphql/types/resolver
 const regularLinkQueries = {
     regularLinks: async () => {
         const regularLinks = await RegularLink.find();
+        console.log("regularLinks: ", regularLinks);
         return regularLinks
 
     },
