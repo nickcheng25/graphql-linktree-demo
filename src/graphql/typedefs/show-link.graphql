@@ -1,0 +1,38 @@
+interface ShowLinks {
+    title: String! @constraint(maxLength: 144)
+    link: String! @constraint(format: "uri")
+    userId: String! @constraint(format: "uuid")
+    dateCreated: DateTime!
+    shows: [Show!]!
+}
+
+type ShowLink implements ShowLinks {
+    title: String! @constraint(maxLength: 144)
+    link: String! @constraint(format: "uri")
+    userId: String! @constraint(format: "uuid")
+    dateCreated: DateTime!
+    shows: [Show!]!
+}
+
+type Show {
+    status: Status!
+    saleLink: String! @constraint(format: "uri")
+}
+
+enum Status {
+  SOLD_OUT
+  NOT_YET_ON_SALE
+  ON_SALE
+}
+
+input ShowLinkInput {
+    title: String @constraint(maxLength: 144) #@todo title is not compulsory, we could probably autopopulate this
+    link: String! @constraint(format: "uri")
+    userId: String! @constraint(format: "uuid")
+    shows: [ShowInput!]!
+}
+
+input ShowInput {
+    status: Status!
+    saleLink: String! @constraint(format: "uri")
+}

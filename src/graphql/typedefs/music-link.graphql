@@ -1,4 +1,11 @@
 scalar DateTime
+interface Music {
+    title: String! @constraint(maxLength: 144)
+    link: String! @constraint(format: "uri")
+    userId: String! @constraint(format: "uuid")
+    dateCreated: DateTime!
+    platformPartners: [PlatformPartner!]
+}
 
 type MusicLink implements Music {
     id: ID!
@@ -12,7 +19,9 @@ type MusicLink implements Music {
 
 type PlatformPartner {
     platformLink: String! @constraint(format: "uri")
-    embeddedAudio: String @constraint(pattern: "^<iframe.*</iframe>$")#@todo validate this is valid html
+    embeddedAudio: String @constraint(pattern: "^<iframe.*</iframe>$")
+    # @todo better validation that this is an embedded audio link
+    # @todo I actually don't like the idea of the client having to pass in the embedded audio html, maybe we should just pass the platform link and the backend can handle the business logic of creating the embedded audio play experience
 }
 
 input MusicLinkInput {

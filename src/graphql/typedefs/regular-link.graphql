@@ -1,3 +1,9 @@
+interface Link {
+    title: String! @constraint(maxLength: 144)
+    link: String! @constraint(format: "uri")
+    userId: String! @constraint(format: "uuid")
+    dateCreated: DateTime!
+}
 type RegularLink implements Link {
     id: ID!
     # implements Link

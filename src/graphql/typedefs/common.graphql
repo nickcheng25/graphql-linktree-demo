@@ -1,18 +1,2 @@
 scalar DateTime
-
-interface Link {
-    title: String! @constraint(maxLength: 144)
-    link: String! @constraint(format: "uri")
-    userId: String! @constraint(format: "uuid")
-    dateCreated: DateTime!
-}
-
-interface Music {
-    title: String! @constraint(maxLength: 144)
-    link: String! @constraint(format: "uri")
-    userId: String! @constraint(format: "uuid")
-    dateCreated: DateTime!
-    platformPartners: [PlatformPartner!]
-}
-
 union LinkSearch = RegularLink | MusicLink

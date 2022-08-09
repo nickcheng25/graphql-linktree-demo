@@ -1,6 +1,6 @@
 import RegularLink from '../../../db/models/regular-link';
 import { ObjectId } from 'mongodb'
-import { QueryRegularLinkArgs, QueryResolvers } from 'src/graphql/types/resolvers';
+import { QueryRegularLinkArgs } from 'src/graphql/types/resolvers';
 
 const regularLinkQueries = {
     regularLinks: async () => {

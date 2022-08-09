@@ -1,6 +1,6 @@
 import MusicLink from '../../../db/models/music-link'
 import { ObjectId } from 'mongodb'
-import { QueryRegularLinkArgs, QueryResolvers } from 'src/graphql/types/resolvers';
+import { QueryRegularLinkArgs } from 'src/graphql/types/resolvers';
 
 const musicLinkQueries = {
     musicLinks: async () => {

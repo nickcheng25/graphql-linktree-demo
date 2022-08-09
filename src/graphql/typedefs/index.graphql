@@ -11,16 +11,13 @@ type Query {
   musicLinks: [MusicLink]!
   musicLink(id: ID!): MusicLink!
 
+  # Show Links
+  showLinks: [ShowLink]!
+  showLink(id: ID!): ShowLink
+
   # Get Links By User Id
   allLinks: [LinkSearch]!
   allLinksByUserId(userId: String!): [LinkSearch]!
-#   # Show Links
-#   showLinks: [ShowLinks]!
-#   showLinks(id: ID!): ShowLinks
-
-#   # Music Player Links
-#   musicLinks: [MusicLinks]!
-#   musicLinks(id: ID!): MusicLinks
 }
 
 type Mutation {
@@ -28,7 +25,11 @@ type Mutation {
   createRegularLink(input: RegularLinkInput!): RegularLink!
   updateRegularLink(id: ID!, link: String!): RegularLink!
 
-  # Music LInks
+  # Music Links
   createMusicLink(input: MusicLinkInput!): MusicLink!
   updateMusicLink(id: ID!, link: String!): MusicLink!
+
+  # Show Links
+  createShowLink(input: ShowLinkInput!): ShowLink!
+  updateShowLink(id: ID!, link: String!): ShowLink!
 }
