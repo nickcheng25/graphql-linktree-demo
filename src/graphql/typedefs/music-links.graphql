@@ -1,0 +1,25 @@
+type MusicLink implements Link {
+    id: ID!
+    # implements Link
+    title: String! @constraint(maxLength: 144)
+    link: String!
+    userId: String!
+    dateCreated: DateTime!
+    platformPartners: [PlatformPartner!]
+}
+
+type PlatformPartner {
+    platformLink: String!
+    audioPlayer: String
+}
+
+input MusicLinkInput {
+    title: String! @constraint(maxLength: 144)
+    userId: String!
+    platformPartner: PlatformPartnerInput
+}
+
+input PlatformPartnerInput {
+    platformLink: String!
+    audioPlayer: String
+}

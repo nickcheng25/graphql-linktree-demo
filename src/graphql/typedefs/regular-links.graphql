@@ -1,16 +1,14 @@
-interface Link {
+type RegularLink implements Link {
+    id: ID!
+    # implements Link
     title: String! @constraint(maxLength: 144)
     link: String!
     userId: String!
     dateCreated: DateTime!
 }
 
-interface Music {
+input RegularLinkInput {
     title: String! @constraint(maxLength: 144)
-    link: String!
     userId: String!
-    dateCreated: DateTime!
-    platformPartners: [PlatformPartner!]
 }
 
-union LinkSearch = RegularLink | MusicLink

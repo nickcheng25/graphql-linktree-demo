@@ -5,8 +5,11 @@ import { regularLinkQueries, regularLinkMutations } from './regular-links';
 const resolvers = {
     LinkSearch: {
         __resolveType: (obj: any) => {
-            console.log("obj: ", obj);
-            if (obj.platformLinks) return 'MusicLink';
+            if (obj.platformPartners) {
+                console.log("music: ", obj);
+                return 'MusicLink';
+            }
+            console.log("regular: ", obj);
             return 'RegularLink';
         }
     },

@@ -17,7 +17,7 @@ const seed = async () => {
     ];
 
     const musicLinks = [
-        new MusicLink({ title: 'Music Link', link: 'https://3', userId: 'seededUser', dateCreated: new Date().toUTCString(), platformLinks: ['spotify'], audioEmbed: ['https://embed'] }),
+        new MusicLink({ title: 'Music Link', link: 'https://3', userId: 'seededUser', dateCreated: new Date().toUTCString(), platformPartners: [{ platformLink: 'https://spotify.com' }] }),
     ]
 
     const saveThisData = [
