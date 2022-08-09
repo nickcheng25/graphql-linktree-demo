@@ -9,10 +9,8 @@ const musicLinkSchema = new Schema(
         dateCreated: { type: Date, default: Date.now },
         platformPartners: [{
             platformLink: { type: String, required: false },
-            audioEmbed: { type: String, required: false },
+            embeddedAudio: { type: String, required: false },
         }]
-
-
     }
 );
 

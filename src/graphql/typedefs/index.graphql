@@ -1,6 +1,6 @@
 
 # Custom Scalars
-scalar Date
+scalar DateTime
 
 type Query {
   # Regular Links
@@ -13,6 +13,7 @@ type Query {
 
   # Get Links By User Id
   allLinks: [LinkSearch]!
+  allLinksByUserId(userId: String!): [LinkSearch]!
 #   # Show Links
 #   showLinks: [ShowLinks]!
 #   showLinks(id: ID!): ShowLinks

@@ -2,13 +2,14 @@ type RegularLink implements Link {
     id: ID!
     # implements Link
     title: String! @constraint(maxLength: 144)
-    link: String!
-    userId: String!
+    link: String! @constraint(format: "uri")
+    userId: String! @constraint(format: "uuid")
     dateCreated: DateTime!
 }
 
 input RegularLinkInput {
-    title: String! @constraint(maxLength: 144)
-    userId: String!
+    title: String @constraint(maxLength: 144) #@todo title is not compulsory, we could probably autopopulate this
+    link: String! @constraint(format: "uri")
+    userId: String! @constraint(format: "uuid")
 }
 

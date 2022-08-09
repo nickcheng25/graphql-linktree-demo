@@ -13,7 +13,11 @@ export type Scalars = {
     Int: number;
     Float: number;
     Date: any;
-    title_String_NotNull_maxLength_144: any;
+    title_String_NotNull_maxLength_144: string;
+    platform_partners: [{
+        platformLink: string;
+        embeddedAudio: string;
+    }];
 };
 
 export type Link = {
@@ -34,9 +38,18 @@ export type MutationCreateRegularLinkArgs = {
     input: {
         title: Scalars['title_String_NotNull_maxLength_144'];
         userId: Scalars['String'];
+        link: Scalars['String'];
     }
 };
 
+export type MutationCreateMusicLinkArgs = {
+    input: {
+        title: Scalars['title_String_NotNull_maxLength_144'];
+        userId: Scalars['String'];
+        link: Scalars['String'];
+        platformPartner: Scalars['platform_partners']
+    }
+};
 
 export type MutationUpdateRegularLinkArgs = {
     id: Scalars['ID'];
@@ -46,15 +59,12 @@ export type MutationUpdateRegularLinkArgs = {
     }
 };
 
-export type Query = {
-    __typename?: 'Query';
-    regularLink: RegularLink;
-    regularLinks: Array<Maybe<RegularLink>>;
-};
-
-
 export type QueryRegularLinkArgs = {
     id: Scalars['ID'];
+};
+
+export type AllLinksArgs = {
+    userId: Scalars['String'];
 };
 
 export type RegularLink = Link & {
