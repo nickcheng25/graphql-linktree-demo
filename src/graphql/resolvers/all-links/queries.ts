@@ -1,4 +1,4 @@
-import { AllLinksArgs } from '../../types/resolvers';
+import { AllLinksArgs } from '../../types/types';
 import MusicLink from '../../../db/models/music-link'
 import RegularLink from '../../../db/models/regular-link';
 

@@ -1,4 +1,4 @@
-import { MutationCreateShowLinkArgs } from 'src/graphql/types/resolvers';
+import { MutationCreateShowLinkArgs } from 'src/graphql/types/types';
 import ShowLink from '../../../db/models/show-link';
 
 const showLinkMutations = {

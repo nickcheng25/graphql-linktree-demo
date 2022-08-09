@@ -1,6 +1,6 @@
 import ShowLink from '../../../db/models/show-link';
 import { ObjectId } from 'mongodb'
-import { QueryShowLinksArgs } from 'src/graphql/types/resolvers';
+import { QueryShowLinksArgs } from 'src/graphql/types/types';
 
 const showLinkQueries = {
     showLinks: async () => {

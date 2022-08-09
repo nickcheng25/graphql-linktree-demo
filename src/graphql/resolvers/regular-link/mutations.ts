@@ -1,4 +1,4 @@
-import { MutationCreateRegularLinkArgs } from 'src/graphql/types/resolvers';
+import { MutationCreateRegularLinkArgs } from 'src/graphql/types/types';
 import RegularLink from '../../../db/models/regular-link';
 
 const regularLinkMutations = {

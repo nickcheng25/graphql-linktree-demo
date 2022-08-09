@@ -1,4 +1,4 @@
-import { MutationCreateMusicLinkArgs } from 'src/graphql/types/resolvers';
+import { MutationCreateMusicLinkArgs } from 'src/graphql/types/types';
 import MusicLink from '../../../db/models/music-link';
 
 const musicLinkMutations = {
