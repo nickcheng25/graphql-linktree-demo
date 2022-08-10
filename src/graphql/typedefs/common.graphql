@@ -1,2 +1,2 @@
 scalar DateTime
-union LinkSearch = RegularLink | MusicLink
+union LinkSearch = RegularLink | MusicLink | ShowLink
