@@ -13,15 +13,51 @@ export type Scalars = {
     DateTime: any;
 };
 
+export type Link = {
+    title: Scalars['String'];
+    link: Scalars['String'];
+    userId: Scalars['String'];
+    dateCreated: Scalars['DateTime'];
+};
+
+export type RegularLink = Link & {
+    __typename?: 'RegularLink';
+    id: Scalars['ID'];
+    title: Scalars['String'];
+    link: Scalars['String'];
+    userId: Scalars['String'];
+    dateCreated: Scalars['DateTime'];
+};
+
+export type RegularLinkInput = {
+    title?: InputMaybe<Scalars['String']>;
+    link: Scalars['String'];
+    userId: Scalars['String'];
+};
+
+export type UpdateRegularLinkInput = {
+    id: Scalars['ID'];
+    title?: InputMaybe<Scalars['String']>;
+    link?: InputMaybe<Scalars['String']>;
+};
+
+export type LinkSearch = RegularLink | MusicLink | ShowLink;
+
 export type Query = {
     __typename?: 'Query';
-    regularLinks: Array<Maybe<RegularLink>>;
+    regularLinks: Maybe<RegularLink>[];
     regularLink: RegularLink;
-    musicLinks: Array<Maybe<MusicLink>>;
+    musicLinks: Maybe<MusicLink>[];
     musicLink: MusicLink;
-    allLinks: Array<Maybe<LinkSearch>>;
-    allLinksByUserId: Array<Maybe<LinkSearch>>;
-    showLinks?: Maybe<ShowLinks>;
+    showLinks: Maybe<ShowLink>[];
+    showLink?: Maybe<ShowLink>;
+    allLinks: Maybe<LinkSearch>[];
+    allLinksByUserId: Maybe<LinkSearch>[];
+};
+
+
+export type QueryRegularLinksArgs = {
+    limit?: InputMaybe<Scalars['Int']>;
 };
 
 
@@ -30,18 +66,23 @@ export type QueryRegularLinkArgs = {
 };
 
 
+export type QueryMusicLinksArgs = {
+    limit?: InputMaybe<Scalars['Int']>;
+};
+
+
 export type QueryMusicLinkArgs = {
+    id: Scalars['ID'];
+};
+
+
+export type QueryShowLinkArgs = {
     id: Scalars['ID'];
 };
 
 
 export type QueryAllLinksByUserIdArgs = {
     userId: Scalars['String'];
-};
-
-
-export type QueryShowLinksArgs = {
-    id: Scalars['ID'];
 };
 
 export type Mutation = {
@@ -61,8 +102,7 @@ export type MutationCreateRegularLinkArgs = {
 
 
 export type MutationUpdateRegularLinkArgs = {
-    id: Scalars['ID'];
-    link: Scalars['String'];
+    input: UpdateRegularLinkInput;
 };
 
 
@@ -72,8 +112,7 @@ export type MutationCreateMusicLinkArgs = {
 
 
 export type MutationUpdateMusicLinkArgs = {
-    id: Scalars['ID'];
-    link: Scalars['String'];
+    input: UpdateMusicLinkInput;
 };
 
 
@@ -83,18 +122,25 @@ export type MutationCreateShowLinkArgs = {
 
 
 export type MutationUpdateShowLinkArgs = {
-    id: Scalars['ID'];
-    link: Scalars['String'];
+    input: UpdateShowLinkInput;
 };
 
-export type MusicLink = Link & {
+export type Music = {
+    title: Scalars['String'];
+    link: Scalars['String'];
+    userId: Scalars['String'];
+    dateCreated: Scalars['DateTime'];
+    platformPartners?: Maybe<PlatformPartner[]>;
+};
+
+export type MusicLink = Music & {
     __typename?: 'MusicLink';
     id: Scalars['ID'];
     title: Scalars['String'];
     link: Scalars['String'];
     userId: Scalars['String'];
     dateCreated: Scalars['DateTime'];
-    platformPartners?: Maybe<Array<PlatformPartner>>;
+    platformPartners?: Maybe<PlatformPartner[]>;
 };
 
 export type PlatformPartner = {
@@ -107,7 +153,7 @@ export type MusicLinkInput = {
     title: Scalars['String'];
     link: Scalars['String'];
     userId: Scalars['String'];
-    platformPartners?: InputMaybe<Array<InputMaybe<PlatformPartnerInput>>>;
+    platformPartners?: InputMaybe<InputMaybe<PlatformPartnerInput>[]>;
 };
 
 export type PlatformPartnerInput = {
@@ -115,44 +161,19 @@ export type PlatformPartnerInput = {
     embeddedAudio?: InputMaybe<Scalars['String']>;
 };
 
-export type RegularLink = Link & {
-    __typename?: 'RegularLink';
+export type UpdateMusicLinkInput = {
     id: Scalars['ID'];
-    title: Scalars['String'];
-    link: Scalars['String'];
-    userId: Scalars['String'];
-    dateCreated: Scalars['DateTime'];
-};
-
-export type RegularLinkInput = {
     title?: InputMaybe<Scalars['String']>;
-    link: Scalars['String'];
-    userId: Scalars['String'];
+    link?: InputMaybe<Scalars['String']>;
+    platformPartners?: InputMaybe<InputMaybe<PlatformPartnerInput>[]>;
 };
-
-export type Link = {
-    title: Scalars['String'];
-    link: Scalars['String'];
-    userId: Scalars['String'];
-    dateCreated: Scalars['DateTime'];
-};
-
-export type Music = {
-    title: Scalars['String'];
-    link: Scalars['String'];
-    userId: Scalars['String'];
-    dateCreated: Scalars['DateTime'];
-    platformPartners?: Maybe<Array<PlatformPartner>>;
-};
-
-export type LinkSearch = RegularLink | MusicLink;
 
 export type ShowLinks = {
     title: Scalars['String'];
     link: Scalars['String'];
     userId: Scalars['String'];
     dateCreated: Scalars['DateTime'];
-    shows: Array<Show>;
+    shows: Show[];
 };
 
 export type ShowLink = ShowLinks & {
@@ -161,14 +182,8 @@ export type ShowLink = ShowLinks & {
     link: Scalars['String'];
     userId: Scalars['String'];
     dateCreated: Scalars['DateTime'];
-    shows: Array<Show>;
-};
-
-export type ShowLinkInput = {
-    title?: InputMaybe<Scalars['String']>;
-    link: Scalars['String'];
-    userId: Scalars['String'];
-    shows: Array<Show>;
+    /** a show is an object containing its sale status, and a redirect link to the vendor */
+    shows: Show[];
 };
 
 export type Show = {
@@ -182,3 +197,22 @@ export enum Status {
     NotYetOnSale = 'NOT_YET_ON_SALE',
     OnSale = 'ON_SALE'
 }
+
+export type ShowLinkInput = {
+    title?: InputMaybe<Scalars['String']>;
+    link: Scalars['String'];
+    userId: Scalars['String'];
+    shows: ShowInput[];
+};
+
+export type ShowInput = {
+    status: Status;
+    saleLink: Scalars['String'];
+};
+
+export type UpdateShowLinkInput = {
+    id: Scalars['ID'];
+    title?: InputMaybe<Scalars['String']>;
+    link?: InputMaybe<Scalars['String']>;
+    shows?: InputMaybe<ShowInput[]>;
+};

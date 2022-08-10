@@ -1,4 +1,4 @@
-import { MutationCreateMusicLinkArgs } from 'src/graphql/types/types';
+import { MutationCreateMusicLinkArgs, MutationUpdateMusicLinkArgs } from 'src/graphql/types/types';
 import MusicLink from '../../../db/models/music-link';
 
 const musicLinkMutations = {
@@ -11,8 +11,8 @@ const musicLinkMutations = {
         const newLink = await MusicLink.create(linkObject);
         return newLink.save();
     },
-    // @todo only delete allowed 
-    updateMusicLink: async (_parent: any, { ...musicLink }: MutationCreateMusicLinkArgs) => { },
+    // @todo write update function, and return back object to render
+    updateMusicLink: async (_parent: any, { ...musicLink }: MutationUpdateMusicLinkArgs) => { return },
 };
 
 export default musicLinkMutations;

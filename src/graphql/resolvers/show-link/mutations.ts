@@ -1,4 +1,4 @@
-import { MutationCreateShowLinkArgs } from 'src/graphql/types/types';
+import { MutationCreateShowLinkArgs, MutationUpdateShowLinkArgs } from 'src/graphql/types/types';
 import ShowLink from '../../../db/models/show-link';
 
 const showLinkMutations = {
@@ -12,7 +12,7 @@ const showLinkMutations = {
         return newLink.save();
     },
     // @todo only delete allowed 
-    updateRegularLink: async (_parent: any, { ...regularLink }: MutationCreateShowLinkArgs) => { },
+    updateRegularLink: async (_parent: any, { ...showLink }: MutationUpdateShowLinkArgs) => { return },
 };
 
 export default showLinkMutations;

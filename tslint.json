@@ -1,0 +1,88 @@
+{
+    "extends": [
+      "tslint:recommended"
+    ],
+    "linterOptions": {
+      "exclude": [
+        "*.js",
+        "**/epsagon_handlers/*.ts",
+        "**/hljs-default.tsx",
+        "**/*.d.ts"
+      ]
+    },
+    "rules": {
+      "comment-format": [
+        true,
+        "check-space"
+      ],
+      "curly": true,
+      "deprecation": false,
+      "file-name-casing": [
+        true,
+        "kebab-case"
+      ],
+      "function-constructor": true,
+      "indent": [
+        true,
+        "spaces",
+        2
+      ],
+      "interface-name": [
+        true,
+        "never-prefix"
+      ],
+      "max-classes-per-file": [
+        true,
+        5,
+        "exclude-class-expressions"
+      ],
+      "max-line-length": false,
+      "member-access": [
+        true,
+        "no-public"
+      ],
+      "new-parens": false,
+      "no-bitwise": false,
+      "no-conditional-assignment": false,
+      "no-console": false,
+      "no-duplicate-variable": false,
+      "no-function-constructor-with-string-args": false,
+      "no-implicit-dependencies": false,
+      "no-irregular-whitespace": true,
+      "no-null-keyword": false,
+      "no-shadowed-variable": false,
+      "no-string-literal": false,
+      "no-trailing-whitespace": [
+        true,
+        "ignore-comments"
+      ],
+      "no-unnecessary-bind": false,
+      "no-unnecessary-type-assertion": false,
+      "no-unsafe-any": false,
+      "no-unused-expression": [
+        true,
+        "allow-fast-null-checks"
+      ],
+      "no-use-before-declare": false,
+      "object-curly-spacing": false,
+      "object-literal-sort-keys": false,
+      "one-variable-per-declaration": false,
+      "ordered-imports": false,
+      "quotemark": [
+        true,
+        "single"
+      ],
+      "radix": false,
+      "strict-type-predicates": true,
+      "type-literal-delimiter": false,
+      "typedef": false,
+      "variable-name": [
+        false,
+        "ban-keywords",
+        "check-format",
+        "allow-leading-underscore",
+        "allow-pascal-case"
+      ]
+    }
+  }
+  
