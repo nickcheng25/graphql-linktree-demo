@@ -1,6 +1,8 @@
 # Installation Guide
 This is a GraphQL + Node + MongoDB (locally hosted) + Typescript backend. Please follow the instructions below to install!
 
+A list of thoughts/ todos are scattered throughout the repo, and also at the bottom of this README file.
+
 # For MacOS:
 XCode Command Line Tools.
 
