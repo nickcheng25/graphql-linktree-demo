@@ -1,17 +1,21 @@
 # Installation Guide
-For MacOS:
+All lines which are inside code blocks can be copied and pasted into your terminal
 
-#Prereq technologies
-Install xcode command line tools.
+# For MacOS:
+XCode Command Line Tools.
+
 ```
 xcode-select --install
 ```
-Install homebrew
+
+# Database Installation 
+[Alternate Instructions for Windows](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-windows/)
+
+To install homebrew (if not already installed)\n
+Run the following commands in the terminal 
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
-
-# Database Installation
 
 Install MongoDB 6.0 Community Edition using homebrew (The local database will utilise this)
 ```
@@ -25,7 +29,8 @@ Startup MongoDB as a macOS service and confirm that it is running
 brew services start mongodb-community@6.0
 brew services list
 ```
-[Insert screenshot here]
+![Screen Shot 2022-08-10 at 2 02 08 pm](https://user-images.githubusercontent.com/49749803/183810255-14e82047-d6f1-4044-81e4-3ccbc2cc8e1c.png)
+
 
 If everything is installed correctly, run the below commands in your terminal to allow this app to access your locally hosted database
 ```
@@ -51,26 +56,17 @@ db.createUser(
 ```
 
 # App Installation
-# Ensure that the version of node is v 18.7.0
+Ensure you're using node v18.7.0
 ```
 node --version
 ```
 Otherwise, install node v 18.7.0
 ```
-```bash
-```
 brew install nvm
-```
-
-```
 nvm install v18.7.0
-```
-
-```
 nvm use v18.7.0
 ```
 
-```
 This should now return v18.7.0
 ```
 node --version 
@@ -84,6 +80,8 @@ yarn install
 ```
 yarn dev
 ```
+
+The GraphQL backend should now be available via the ApolloGraphQL GUI @ http://localhost:4000/graphql
 
 
 # The Problem
