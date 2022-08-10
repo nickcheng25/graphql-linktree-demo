@@ -81,7 +81,10 @@ yarn install
 yarn dev
 ```
 
-The GraphQL backend should now be available via the ApolloGraphQL GUI @ http://localhost:4000/graphql
+The GraphQL backend should now be available via the ApolloGraphQL GUI @ http://localhost:4000/graphql. Alternatively you can run the following command in your terminal to run some tests which are written under /src/__tests__
+```
+yarn test
+```
 
 
 # The Problem

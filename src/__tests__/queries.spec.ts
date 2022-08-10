@@ -2,7 +2,7 @@ import { connection } from 'mongoose';
 import app from '../app';
 import { port } from '../config/environment';
 import connectDB from '../db';
-import { createMusicLink, createRegularLink, createShowLink, getAllLinks } from './utils';
+import { createMusicLink, createRegularLink, createShowLink, getAllLinks } from '../testUtils/utils';
 
 describe('Queries', () => {
     beforeAll(async () => {

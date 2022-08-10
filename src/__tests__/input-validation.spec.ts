@@ -2,7 +2,7 @@ import { connection } from 'mongoose';
 import app from '../app';
 import { port } from '../config/environment';
 import connectDB from '../db';
-import { createRegularLink, createMusicLink, createShowLink } from './utils';
+import { createRegularLink, createMusicLink, createShowLink } from '../testUtils/utils';
 
 describe('Input Validation', () => {
     let server: any;
