@@ -3,14 +3,10 @@ For MacOS:
 
 #Prereq technologies
 Install xcode command line tools.
-```bash
 ```
 xcode-select --install
-
 ```
 Install homebrew
-```
-```bash
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
