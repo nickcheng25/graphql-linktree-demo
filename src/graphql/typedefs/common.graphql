@@ -1,2 +1,6 @@
 scalar DateTime
 union LinkSearch = RegularLink | MusicLink | ShowLink
+
+input QueryAllLinksInput {
+    userId: String!@constraint(format: "uuid")
+}

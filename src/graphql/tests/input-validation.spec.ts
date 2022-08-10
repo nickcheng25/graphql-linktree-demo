@@ -2,7 +2,7 @@ import { connection } from 'mongoose';
 import app from '../../app';
 import { port } from '../../config/environment';
 import connectDB from '../../db';
-import request from 'supertest'
+import { createRegularLink, createMusicLink, createShowLink } from './utils';
 
 describe('Input Validation', () => {
     beforeAll(async () => {
@@ -64,7 +64,7 @@ describe('Input Validation', () => {
             userId: '123e4567-e89b-12d3-a456-426614174000',
             platformPartners:
                 [{
-                    'platformLink': 'spotify.com',
+                    'partner': 'SPOTIFY',
                     'embeddedAudio': '<iframe style=\'border-radius:12px\' src=\'https://open.spotify.com/embed/track/4GKphhKJprqrPkLuU8Vsyu?utm_source=generator&theme=0\' width=\'100%\' height=\'380\'></iframe>'
 
                 }]
@@ -80,7 +80,7 @@ describe('Input Validation', () => {
             userId: '123e4567-e89b-12d3-a456-426614174000',
             platformPartners:
                 [{
-                    'invalidField': 'spotify.com',
+                    'invalidField': 'SPOTIFY',
                     'embeddedAudio': '<iframe style=\'border-radius:12px\' src=\'https://open.spotify.com/embed/track/4GKphhKJprqrPkLuU8Vsyu?utm_source=generator&theme=0\' width=\'100%\' height=\'380\'></iframe>'
                 }]
         }
@@ -95,7 +95,7 @@ describe('Input Validation', () => {
             userId: '123e4567-e89b-12d3-a456-426614174000',
             platformPartners:
                 [{
-                    'platformLink': 'spotify.com',
+                    'partner': 'SPOTIFY',
                     'embeddedAudio': '<This is a zero day exploit!>'
                 }]
         }
@@ -135,64 +135,4 @@ describe('Input Validation', () => {
         // @todo - a better error message should be displayed to tell the client what the enums are
     });
 })
-
-const createRegularLink = async (input: any) => {
-    return request(app).post('/graphql')
-        .set('Accept', 'application/json')
-        .send({
-            query: 'mutation Mutation ($input: RegularLinkInput!) { \
-            createRegularLink(input: $input) { \
-                title, \
-                link, \
-                userId, \
-          } \
-        }',
-            'variables': {
-                'input': input
-            }
-        })
-}
-
-const createMusicLink = async (input: any) => {
-    return request(app).post('/graphql')
-        .set('Accept', 'application/json')
-        .send({
-            query: 'mutation Mutation ($input: MusicLinkInput!) { \
-            createMusicLink(input: $input) { \
-                title, \
-                link, \
-                userId, \
-                platformPartners { \
-                    platformLink, \
-                    embeddedAudio \
-                } \
-          } \
-        }',
-            'variables': {
-                'input': input
-            }
-        })
-}
-
-const createShowLink = async (input: any) => {
-    return request(app).post('/graphql')
-        .set('Accept', 'application/json')
-        .send({
-            query: 'mutation Mutation ($input: ShowLinkInput!) { \
-                createShowLink(input: $input) { \
-                title, \
-                link, \
-                userId, \
-                shows { \
-                    status, \
-                    saleLink \
-                } \
-          } \
-        }',
-            'variables': {
-                'input': input
-            }
-        })
-}
-
 // @todo - fix tests so that they don't hang

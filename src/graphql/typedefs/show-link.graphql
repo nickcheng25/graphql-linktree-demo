@@ -22,12 +22,6 @@ type Show {
     saleLink: String! @constraint(format: "uri")
 }
 
-enum Status {
-  SOLD_OUT
-  NOT_YET_ON_SALE
-  ON_SALE
-}
-
 input ShowLinkInput {
     title: String @constraint(maxLength: 144) #@todo title is not compulsory, we could probably autopopulate this
     link: String! @constraint(format: "uri")
@@ -38,6 +32,12 @@ input ShowLinkInput {
 input ShowInput {
     status: Status!
     saleLink: String! @constraint(format: "uri")
+}
+
+enum Status {
+  SOLD_OUT
+  NOT_YET_ON_SALE
+  ON_SALE
 }
 
 input UpdateShowLinkInput {

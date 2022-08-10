@@ -8,7 +8,7 @@ const musicLinkSchema = new Schema(
         userId: { type: String, required: true },
         dateCreated: { type: Date, default: Date.now },
         platformPartners: [{
-            platformLink: { type: String, required: false },
+            partner: { type: String, required: false },
             embeddedAudio: { type: String, required: false },
         }]
     }

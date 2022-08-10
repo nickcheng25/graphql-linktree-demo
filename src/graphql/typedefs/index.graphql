@@ -12,12 +12,12 @@ type Query {
   musicLink(id: ID!): MusicLink!
 
   # Show Links
-  showLinks: [ShowLink]!
+  showLinks(limit: Int = 10): [ShowLink]!
   showLink(id: ID!): ShowLink
 
   # Get Links By User Id
-  allLinks: [LinkSearch]!
-  allLinksByUserId(userId: String!): [LinkSearch]!
+  allLinks(limit: Int = 10): [LinkSearch]!
+  allLinksByUserId(input: QueryAllLinksInput!): [LinkSearch]!
 }
 
 type Mutation {

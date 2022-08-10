@@ -127,4 +127,13 @@ You are required to create a JSON API that our front end clients will interact w
 Set up your own remote git repository and make commits as you would in your day to day work. Submit a link to your repo when you're finished.
 
 @todo
-- [ ] Consider how we generate links
+- [ ] Other access patterns to consider
+- [ ] Client wants to know which shows are on sale
+- [ ] Client wants to know which shows are about to go on sale
+- [ ] Consider pagination 
+- [ ] It probably doesn't make sense to ask the client to pass the userID via the query string. A call to the backend to authorise the client is probably a better way to do this.
+- [ ] Demand-oriented schema design
+- [ ] Caching for better performance?
+- [ ] Maybe we should just pass the platform link and the backend can handle the business logic of creating the embedded audio play experience
+- [ ] Metadata object storing link metadata like dateCreated, lastModified etc?
+- [ ] Sorted by date can default to either ascending/descending depedning on client preference

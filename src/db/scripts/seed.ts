@@ -19,8 +19,8 @@ const seed = async () => {
     const musicLinks = [
         new MusicLink({
             title: 'Music Link', link: 'https://3.com', userId: '123e4567-e89b-12d3-a456-426614174000', dateCreated: new Date().toUTCString(), platformPartners: [
-                { platformLink: 'https://spotify.com', embeddedAudio: '<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/4GKphhKJprqrPkLuU8Vsyu?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>' },
-                { platformLink: 'https://soundcloud.com' },
+                { partner: 'SPOTIFY', embeddedAudio: '<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/4GKphhKJprqrPkLuU8Vsyu?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>' },
+                { partner: 'SOUNDCLOUD' },
             ]
         }),
     ]
