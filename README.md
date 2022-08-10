@@ -11,7 +11,7 @@ xcode-select --install
 # Database Installation 
 [Alternate Instructions for Windows](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-windows/)
 
-To install homebrew (if not already installed)\n
+To install homebrew (if not already installed)
 Run the following commands in the terminal 
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
