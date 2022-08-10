@@ -8,7 +8,6 @@ const musicLinkMutations = {
             ...musicLink.input,
             dateCreated
         }
-        console.log(linkObject);
         const newLink = await MusicLink.create(linkObject);
         return newLink.save();
     },

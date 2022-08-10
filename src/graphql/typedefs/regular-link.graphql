@@ -19,3 +19,9 @@ input RegularLinkInput {
     userId: String! @constraint(format: "uuid")
 }
 
+input UpdateRegularLinkInput {
+    id: ID!
+    title: String @constraint(maxLength: 144)
+    link: String @constraint(format: "uri")
+
+}

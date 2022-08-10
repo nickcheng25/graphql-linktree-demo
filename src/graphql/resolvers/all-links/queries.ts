@@ -8,7 +8,6 @@ const allLinkQueries = {
         const musicLinks = await MusicLink.find();
         const regularLinks = await RegularLink.find();
         const showLinks = await ShowLink.find();
-        console.log("allLinks: ", [...musicLinks, ...regularLinks]);
         return [...musicLinks, ...regularLinks, ...showLinks];
     },
     allLinksByUserId: async (_parent: any, args: QueryAllLinksByUserIdArgs) => {

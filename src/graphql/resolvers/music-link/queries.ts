@@ -5,7 +5,6 @@ import { QueryRegularLinkArgs } from 'src/graphql/types/types';
 const musicLinkQueries = {
     musicLinks: async () => {
         const musicLinks = await MusicLink.find();
-        console.log("musicLInks: ", musicLinks);
         return musicLinks
 
     },

@@ -11,11 +11,14 @@ type ShowLink implements ShowLinks {
     link: String! @constraint(format: "uri")
     userId: String! @constraint(format: "uuid")
     dateCreated: DateTime!
+    """  
+    a show is an object containing its sale status, and a redirect link to the vendor
+     """
     shows: [Show!]!
 }
 
 type Show {
-    status: Status!
+    status: Status! # @todo, I don't want the client to have to write business logic here to determine what and how to render, we could handle the logic and create a boolean isOnSale here
     saleLink: String! @constraint(format: "uri")
 }
 
@@ -35,4 +38,11 @@ input ShowLinkInput {
 input ShowInput {
     status: Status!
     saleLink: String! @constraint(format: "uri")
+}
+
+input UpdateShowLinkInput {
+    id: ID!
+    title: String @constraint(maxLength: 144)
+    link: String @constraint(format: "uri")
+    shows: [ShowInput!]
 }

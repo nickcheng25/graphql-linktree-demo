@@ -4,11 +4,11 @@ scalar DateTime
 
 type Query {
   # Regular Links
-  regularLinks: [RegularLink]!
+  regularLinks(limit: Int = 10): [RegularLink]!
   regularLink(id: ID!): RegularLink!
 
   # Music Links
-  musicLinks: [MusicLink]!
+  musicLinks(limit: Int = 10): [MusicLink]!
   musicLink(id: ID!): MusicLink!
 
   # Show Links
@@ -23,13 +23,13 @@ type Query {
 type Mutation {
   # Regular Links
   createRegularLink(input: RegularLinkInput!): RegularLink!
-  updateRegularLink(id: ID!, link: String!): RegularLink!
+  updateRegularLink(input: UpdateRegularLinkInput!): RegularLink!
 
   # Music Links
   createMusicLink(input: MusicLinkInput!): MusicLink!
-  updateMusicLink(id: ID!, link: String!): MusicLink!
+  updateMusicLink(input: UpdateMusicLinkInput!): MusicLink!
 
   # Show Links
   createShowLink(input: ShowLinkInput!): ShowLink!
-  updateShowLink(id: ID!, link: String!): ShowLink!
+  updateShowLink(input: UpdateShowLinkInput!): ShowLink!
 }

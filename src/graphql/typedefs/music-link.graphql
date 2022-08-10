@@ -35,3 +35,10 @@ input PlatformPartnerInput {
     platformLink: String!
     embeddedAudio: String
 }
+
+input UpdateMusicLinkInput {
+    id: ID!
+    title: String @constraint(maxLength: 144)
+    link: String @constraint(format: "uri")
+    platformPartners: [PlatformPartnerInput]
+}
