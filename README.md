@@ -1,5 +1,5 @@
 # Installation Guide
-All lines which are inside code blocks can be copied and pasted into your terminal
+This is a GraphQL + Node + MongoDB (locally hosted) + Typescript backend. Please follow the instructions below to install!
 
 # For MacOS:
 XCode Command Line Tools.
