@@ -1,5 +1,5 @@
 import request from 'supertest';
-import app from '../../app';
+import app from '../app';
 
 export const createRegularLink = async (input: any) => {
     return request(app).post('/graphql')

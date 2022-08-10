@@ -1,18 +1,20 @@
 import { connection } from 'mongoose';
-import app from '../../app';
-import { port } from '../../config/environment';
-import connectDB from '../../db';
+import app from '../app';
+import { port } from '../config/environment';
+import connectDB from '../db';
 import { createRegularLink, createMusicLink, createShowLink } from './utils';
 
 describe('Input Validation', () => {
+    let server: any;
     beforeAll(async () => {
         await connectDB();
         await connection.dropDatabase();
-        await app.listen(port)
+        server = app.listen(port)
     })
 
     afterAll(async () => {
         await connection.close();
+        await server.close();
     })
 
     it('should be able to insert a regular link if there are no input errors', async () => {

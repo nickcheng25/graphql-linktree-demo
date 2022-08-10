@@ -1,18 +1,13 @@
 import { connection } from 'mongoose';
-import app from '../../app';
-import { port } from '../../config/environment';
-import connectDB from '../../db';
+import app from '../app';
+import { port } from '../config/environment';
+import connectDB from '../db';
 import { createMusicLink, createRegularLink, createShowLink, getAllLinks } from './utils';
 
 describe('Queries', () => {
     beforeAll(async () => {
         await connectDB();
         await connection.dropDatabase();
-        await app.listen(port)
-    })
-
-    beforeEach(() => {
-        connection.dropDatabase();
     })
 
     afterAll(async () => {
@@ -54,6 +49,7 @@ describe('Queries', () => {
         await createShowLink(showLink);
         await createMusicLink(musicLink);
         const res = await getAllLinks(input);
+        console.log("res: ", res);
         expect(res.body.data.allLinksByUserId).toHaveLength(3);
     });
 })

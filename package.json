@@ -9,7 +9,7 @@
     "dev": "ts-node-dev --respawn --pretty --transpile-only ./src/index.ts",
     "db:seed": "ts-node-dev ./src/db/scripts/seed.ts",
     "generate": "graphql-codegen",
-    "test": "jest",
+    "test": "jest --runInBand",
     "lint": "tslint --project ./tsconfig.json"
   },
   "devDependencies": {
