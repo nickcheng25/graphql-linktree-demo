@@ -1,6 +1,6 @@
 import ShowLink from '../../../db/models/show-link';
 import { ObjectId } from 'mongodb'
-import { QueryShowLinksArgs } from 'src/graphql/types/types';
+import { QueryShowLinkArgs } from '../../../graphql/types/types';
 
 const showLinkQueries = {
     showLinks: async () => {
@@ -8,7 +8,7 @@ const showLinkQueries = {
         return showLinks
 
     },
-    showLink: async (_parent: any, args: QueryShowLinksArgs) => {
+    showLink: async (_parent: any, args: QueryShowLinkArgs) => {
         const regularLink = await ShowLink.findOne({ _id: new ObjectId(args.id) });
         return regularLink
 
