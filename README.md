@@ -62,9 +62,8 @@ node --version
 ```
 Otherwise, install node v 18.7.0
 ```
-brew install nvm
-nvm install v18.7.0
-nvm use v18.7.0
+brew install n
+sudo n 18.7.0
 ```
 
 This should now return v18.7.0
@@ -130,6 +129,7 @@ You are required to create a JSON API that our front end clients will interact w
 Set up your own remote git repository and make commits as you would in your day to day work. Submit a link to your repo when you're finished.
 
 @todo
+- [ ] Mutations other than create
 - [ ] Other access patterns to consider
 - [ ] Client wants to know which shows are on sale
 - [ ] Client wants to know which shows are about to go on sale
