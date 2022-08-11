@@ -44,6 +44,7 @@ Using mongosh:
 ```
 use admin
 ```
+Then
 ```
 db.createUser(
   {
@@ -57,6 +58,7 @@ db.createUser(
 )
 ```
 Please verify that this returns { ok: 1 }, otherwise the database will not work.
+-------
 If you have an existing installation of Mongodb, and you've created an admin user before, please input your user and pass values in lines 9-10 of src/db/index.ts 
 
 # App Installation
